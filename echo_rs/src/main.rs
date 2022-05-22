@@ -2,7 +2,7 @@ use clap::Arg;
 use clap::Command;
 
 fn main() {
-    let matches = Command::new("echo-rs")
+    let matches = Command::new("echo_rs")
         .version("0.1.0")
         .author("John kyvetos")
         .about("a rust implemtation of echo")

@@ -6,7 +6,7 @@ type TestResult = Result<(), Box<dyn std::error::Error>>;
 
 #[test]
 fn dies_no_args() -> TestResult {
-    Command::cargo_bin("echo-rs")?
+    Command::cargo_bin("echo_rs")?
         .assert()
         .failure()
         .stderr(predicate::str::contains("USAGE"));
@@ -15,13 +15,13 @@ fn dies_no_args() -> TestResult {
 
 // #[test]
 // fn runs() {
-//     let mut cmd = Command::cargo_bin("echo-rs").unwrap();
+//     let mut cmd = Command::cargo_bin("echo_rs").unwrap();
 //     cmd.arg("hello").assert().success();
 // }
 
 fn run(args: &[&str], expected_file: &str) -> TestResult {
     let expected = fs::read_to_string(expected_file)?;
-    Command::cargo_bin("echo-rs")?
+    Command::cargo_bin("echo_rs")?
         .args(args)
         .assert()
         .success()
@@ -52,7 +52,7 @@ fn hello2_no_newline() -> TestResult {
 // fn hello1() -> TestResult {
 //     let outfile = "tests/expected/hello1.txt";
 //     let expected = fs::read_to_string(outfile)?;
-//     let mut cmd = Command::cargo_bin("echo-rs")?;
+//     let mut cmd = Command::cargo_bin("echo_rs")?;
 //     cmd.arg("Hello there").assert().success().stdout(expected);
 //     Ok(())
 // }
@@ -61,7 +61,7 @@ fn hello2_no_newline() -> TestResult {
 // fn hello2() -> TestResult {
 //     let outfile = "tests/expected/hello2.txt";
 //     let expected = fs::read_to_string(outfile)?;
-//     let mut cmd = Command::cargo_bin("echo-rs")?;
+//     let mut cmd = Command::cargo_bin("echo_rs")?;
 //     cmd.args(vec!["Hello", "there"])
 //         .assert()
 //         .success()
